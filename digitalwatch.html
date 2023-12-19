@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital_watch</title>
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+.digital{
+    border: 2px solid;
+    margin-top: 149px;
+    width: 14%;
+    font-size: xxx-large;
+    padding-left: 50px;
+    font-weight: 700;
+    background-color: black;
+    color: white;
+}
+@media only screen and (min-width: 250px) and (max-width: 450px){
+    .digital{border: 2px solid;
+    margin-top: 149px;
+    width: 51%;
+    font-size: xx-large;
+    padding-left: 50px;
+    font-weight: 700;
+    background-color: black;
+    color: white;
+    margin-left: 48px }
+
+}
+    </style>
+</head>
+<body>
+    
+    <div class="digital">
+
+    <div id="clock">
+
+    </div>
+
+    </div>
+
+
+
+
+
+    <script>
+
+        const currenTime = () =>{
+
+            const time = document.getElementById('clock')
+
+            let date = new Date(),
+            hours = date.getHours(),
+            minute = date.getMinutes(),
+            seconds = date.getSeconds();
+
+            let day;
+            day = hours < 12 ?"am":"pm";
+            hours = hours > 12 ? hours - 12 : hours;
+            hours = hours == 0 ? (hours = 12) : hours;
+
+            hours = hours <10 ? `0${hours}` : hours;
+            minute = minute < 10 ? `0 ${minute}` : minute;
+            seconds = seconds < 10 ? `0 ${seconds}` : seconds;
+
+            time.textContent = `${hours}:${minute}:${seconds}`
+
+
+        };
+
+        currenTime();
+        setInterval(currenTime,1000);
+    </script>
+
+</body>
+</html>
